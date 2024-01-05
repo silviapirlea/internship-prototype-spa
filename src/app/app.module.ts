@@ -10,6 +10,14 @@ import { OrganisationBoardComponent } from './organisation-board/organisation-bo
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { LogoutComponent } from './auth/logout/logout.component';
 import { RegisterComponent } from './auth/register/register.component';
+import { MenuHeaderComponent } from './shared/menu-header/menu-header.component';
+import { MenuHeaderItemComponent } from './shared/menu-header/menu-header-item/menu-header-item.component';
+import { ProfileComponent } from './student-board/profile/profile.component';
+import { SearchInternshipsComponent } from './student-board/search-internships/search-internships.component';
+import { MyApplicationsComponent } from './student-board/my-applications/my-applications.component';
+import { ManageInternshipsComponent } from './organisation-board/manage-internships/manage-internships.component';
+import { StudentHomeComponent } from './student-board/student-home/student-home.component';
+import { OrganisationHomeComponent } from './organisation-board/organisation-home/organisation-home.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +27,15 @@ import { RegisterComponent } from './auth/register/register.component';
     StudentBoardComponent,
     OrganisationBoardComponent,
     LogoutComponent,
-    RegisterComponent
+    RegisterComponent,
+    MenuHeaderComponent,
+    MenuHeaderItemComponent,
+    ProfileComponent,
+    SearchInternshipsComponent,
+    MyApplicationsComponent,
+    ManageInternshipsComponent,
+    StudentHomeComponent,
+    OrganisationHomeComponent
   ],
   imports: [
     BrowserModule,

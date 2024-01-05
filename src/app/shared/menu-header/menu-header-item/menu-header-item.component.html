@@ -1,0 +1,9 @@
+<div
+  class="menu-item d-flex align-items-center clickable"
+  [class.active]="isActive()"
+  [routerLink]="section"
+  [state]="{ isMenuSelection: true }"
+>
+  <div class="icon" [ngClass]="section"></div>
+  <h5 class="mb-0 ms-1 main-font">{{ section | uppercase }}</h5>
+</div>

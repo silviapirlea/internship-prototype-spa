@@ -1,0 +1,18 @@
+.shell-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.shell-header {
+  background-color: rgba(#EFE2BA, 0.1);
+}
+
+.shell-content {
+  background-color: rgba(#EFE2BA, 0.1);
+  flex: 1;
+}
+
+.clickable {
+  cursor: pointer;
+}

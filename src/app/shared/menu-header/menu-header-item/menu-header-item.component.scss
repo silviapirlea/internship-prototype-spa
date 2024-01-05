@@ -1,0 +1,41 @@
+.menu-item {
+  padding: 19px 27px;
+
+  &.active {
+    font-weight: bold;
+    color: #4056A1;
+    border-bottom: 3px solid #4056A1;
+  }
+}
+
+.icon {
+  width: 32px;
+  height: 32px;
+
+  &.home {
+    background-image: url("~src/assets/icons/menu-header/home.svg");
+    background-repeat: no-repeat;
+  }
+
+  &.profile {
+    background-image: url("~src/assets/icons/menu-header/profile.svg");
+    background-repeat: no-repeat;
+  }
+
+  &.search {
+    background-image: url("~src/assets/icons/menu-header/search.svg");
+    background-repeat: no-repeat;
+  }
+
+  &.my-applications {
+    background-image: url("../../../../assets/icons/menu-header/my-applications.svg");
+    background-repeat: no-repeat;
+  }
+
+  &.manage-internships{
+    background-image: url("~src/assets/icons/menu-header/manage-internships.svg");
+    background-repeat: no-repeat;
+  }
+}
+
+
