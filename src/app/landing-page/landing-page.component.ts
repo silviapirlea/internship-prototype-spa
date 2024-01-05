@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {UserRoleEnum} from "../auth/model/user-role.enum";
 
 @Component({
   selector: 'app-landing-page',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./landing-page.component.scss']
 })
 export class LandingPageComponent implements OnInit {
+
+  readonly UserRoleEnum = UserRoleEnum;
 
   constructor() { }
 

@@ -9,6 +9,7 @@ import { StudentBoardComponent } from './student-board/student-board.component';
 import { OrganisationBoardComponent } from './organisation-board/organisation-board.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { LogoutComponent } from './auth/logout/logout.component';
+import { RegisterComponent } from './auth/register/register.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { LogoutComponent } from './auth/logout/logout.component';
     LoginComponent,
     StudentBoardComponent,
     OrganisationBoardComponent,
-    LogoutComponent
+    LogoutComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

@@ -17,6 +17,21 @@ export class AuthService {
           ? of(user)
           : throwError(() => new Error("Invalid username or password!"));
       })
-    )
+    );
+  }
+
+  register(user: UserModel) {
+    return of(this.userService.existsByEmail(user.email)).pipe(
+      switchMap((exists) => {
+        return exists
+          ? throwError(() => new Error("Email already used!"))
+          : this.registerUser(user);
+      })
+    );
+  }
+
+  private registerUser(user: UserModel): Observable<UserModel> {
+    this.userService.addUser(user);
+    return of(user);
   }
 }

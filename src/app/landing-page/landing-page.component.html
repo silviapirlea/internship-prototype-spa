@@ -1,7 +1,11 @@
 <div class="vh-100 vw-100">
   <div class="d-flex justify-content-center align-items-center gap-1 my-2">
     <button class="btn btn-dark" [routerLink]="['/login']">Login</button>
-    <button class="btn btn-primary">Register as student</button>
-    <button class="btn btn-primary">Register as organisation</button>
+    <button class="btn btn-primary" [routerLink]="['/register']" [queryParams]="{role: UserRoleEnum.STUDENT}">Register
+      as student
+    </button>
+    <button class="btn btn-primary" [routerLink]="['/register']" [queryParams]="{role: UserRoleEnum.ORGANISATION}">
+      Register as organisation
+    </button>
   </div>
 </div>

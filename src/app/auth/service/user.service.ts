@@ -36,4 +36,12 @@ export class UserService {
   findUser(email: string, password: string): UserModel | undefined {
     return this.users.find((user) => user.email === email && user.password === password);
   }
+
+  existsByEmail(email: string): boolean {
+    return this.users.find((user) => user.email === email) ? true : false;
+  }
+
+  printUsers(): void {
+    this.users.forEach(console.log);
+  }
 }
