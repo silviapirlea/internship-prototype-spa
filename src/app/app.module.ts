@@ -12,6 +12,7 @@ import { LogoutComponent } from './auth/logout/logout.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { MenuHeaderComponent } from './shared/menu-header/menu-header.component';
 import { MenuHeaderItemComponent } from './shared/menu-header/menu-header-item/menu-header-item.component';
+import { FloatingButton } from './shared/floating-button/floating-button.component';
 import { ProfileComponent } from './student-board/profile/profile.component';
 import { SearchInternshipsComponent } from './student-board/search-internships/search-internships.component';
 import { MyApplicationsComponent } from './student-board/my-applications/my-applications.component';
@@ -35,15 +36,11 @@ import { OrganisationHomeComponent } from './organisation-board/organisation-hom
     MyApplicationsComponent,
     ManageInternshipsComponent,
     StudentHomeComponent,
-    OrganisationHomeComponent
+    OrganisationHomeComponent,
+    FloatingButton,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule
-  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

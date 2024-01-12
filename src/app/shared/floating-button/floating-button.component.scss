@@ -1,0 +1,25 @@
+.button-wrapper{
+    position: absolute; 
+    bottom: 0;
+    right:0;
+    margin-right: 2.5vw;
+    margin-bottom: 5vh; 
+    height: 10vh;
+    width: 5vw;
+}
+
+.float{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom:40px;
+	right:40px;
+	background-color:#4056A1;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+	box-shadow: 2px 2px 3px #999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
