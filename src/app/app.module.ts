@@ -19,6 +19,7 @@ import { MyApplicationsComponent } from './student-board/my-applications/my-appl
 import { ManageInternshipsComponent } from './organisation-board/manage-internships/manage-internships.component';
 import { StudentHomeComponent } from './student-board/student-home/student-home.component';
 import { OrganisationHomeComponent } from './organisation-board/organisation-home/organisation-home.component';
+import { InternshipsList } from './organisation-board/manage-internships/components/internships-list/internships-list.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { OrganisationHomeComponent } from './organisation-board/organisation-hom
     StudentHomeComponent,
     OrganisationHomeComponent,
     FloatingButton,
+    InternshipsList,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],
