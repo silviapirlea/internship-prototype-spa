@@ -112,6 +112,25 @@ export class StorageService {
     this.internshipService.updateInternships(newStoredInternships);
   }
 
+  public deleteInternship(internshipId: string): void {
+    const storedInternships = window.sessionStorage.getItem(
+      this.ORGANIZATION_INTERNSHIPS_KEY
+    );
+    if (storedInternships) {
+      const parsedInternships = JSON.parse(
+        storedInternships
+      ) as InternshipModel[];
+      const newInternships = parsedInternships.filter(
+        (internship) => internship.id !== internshipId
+      );
+      window.sessionStorage.setItem(
+        this.ORGANIZATION_INTERNSHIPS_KEY,
+        JSON.stringify(newInternships)
+      );
+      this.internshipService.updateInternships(newInternships);
+    }
+  }
+
   public isLoggedIn(): boolean {
     const user = window.sessionStorage.getItem(this.USER_KEY);
     return !!user;
