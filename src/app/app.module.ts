@@ -23,6 +23,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { InternshipService } from 'src/app/auth/service/internship.service';
 import { ProfileComponent as OrganisationProfileComponent } from 'src/app/organisation-board/profile/profile.component';
 import { ProfileCardComponent } from 'src/app/organisation-board/profile/components/profile-card/profile-card.component';
+import { CreateProfileModalComponent } from './student-board/profile/create-profile-modal/create-profile-modal.component';
+import { FileUploadComponent } from './shared/file-upload/file-upload.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,6 +47,8 @@ import { ProfileCardComponent } from 'src/app/organisation-board/profile/compone
     CreateInternshipModal,
     OrganisationProfileComponent,
     ProfileCardComponent,
+    CreateProfileModalComponent,
+    FileUploadComponent,
   ],
   imports: [
     BrowserModule,

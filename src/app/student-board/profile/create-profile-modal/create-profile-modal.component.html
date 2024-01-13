@@ -1,0 +1,24 @@
+<div class="card p-2">
+  <div class="card-body">
+    <div class="d-flex justify-content-between">
+      <h3 class="primary-text-color my-2">{{title}}</h3>
+      <i class="close bi bi-x" (click)="onClose()"></i>
+    </div>
+    <form [formGroup]="formGroup" class="d-flex flex-column">
+      <div class="my-4">
+        <label for="address" class="form-label">Address</label>
+        <input type="email" class="form-control" id="address" placeholder="Enter your address" required
+               [formControlName]="ADDRESS">
+      </div>
+      <app-file-upload [formControlName]="CV" [label]="'Upload your CV here!'"></app-file-upload>
+      <div class="my-4">
+        <label for="interests" class="form-label">Interests</label>
+        <input type="email" class="form-control" id="interests" placeholder="Enter your job interests" required
+               [formControlName]="INTERESTS">
+      </div>
+    </form>
+    <div class="d-flex justify-content-center">
+      <button class="btn btn-secondary" [disabled]="this.formGroup.invalid" (click)="onSave()">{{'Create profile'}}</button>
+    </div>
+  </div>
+</div>

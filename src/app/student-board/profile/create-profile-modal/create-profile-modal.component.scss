@@ -1,0 +1,17 @@
+.card {
+  border-radius: 20px;
+
+  .close {
+   font-size: 32px;
+  }
+}
+
+::ng-deep .create-profile-modal {
+  .modal-dialog {
+    max-width: 50%;
+  }
+
+  .modal-content {
+    border-radius: 20px;
+  }
+}
