@@ -1,0 +1,58 @@
+<form [formGroup]="formGroup">
+  <div class="mb-3">
+    <label for="email" class="form-label">Title</label>
+    <input
+      type="text"
+      class="form-control"
+      id="title"
+      placeholder="Title"
+      required
+      [formControlName]="TITLE"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="position" class="form-label">Position</label>
+    <input
+      type="text"
+      class="form-control"
+      id="Position"
+      placeholder="Position"
+      required
+      [formControlName]="POSITION"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="firstName" class="form-label">First name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="firstName"
+      placeholder="Enter your first name"
+      required
+      [formControlName]="FIRST_NAME"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="lastName" class="form-label">Last name</label>
+    <input
+      type="text"
+      class="form-control"
+      id="lastName"
+      placeholder="Enter your last name"
+      required
+      [formControlName]="LAST_NAME"
+    />
+  </div>
+  <div class="mb-3">
+    <label for="phone" class="form-label">Phone</label>
+    <input
+      type="tel"
+      class="form-control"
+      id="phone"
+      placeholder="Enter your phone number"
+      required
+      [formControlName]="PHONE"
+    />
+  </div>
+  <div *ngIf="errorMessage" class="text-danger">{{ errorMessage }}</div>
+</form>

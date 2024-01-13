@@ -22,6 +22,8 @@ import { OrganisationHomeComponent } from './organisation-board/organisation-hom
 import { InternshipsList } from './organisation-board/manage-internships/components/internships-list/internships-list.component';
 import { InternshipCard } from 'src/app/organisation-board/manage-internships/components/internship-card/internship-card.component';
 import { TextValue } from 'src/app/shared/text-value/text-value.component';
+import { CreateInternshipModal } from 'src/app/organisation-board/manage-internships/components/create-internship-modal/create-internship-modal.component';
+import { CreateInternshipForm } from 'src/app/organisation-board/manage-internships/components/create-internship-form/create-internship-form.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +46,8 @@ import { TextValue } from 'src/app/shared/text-value/text-value.component';
     InternshipsList,
     InternshipCard,
     TextValue,
+    CreateInternshipModal,
+    CreateInternshipForm,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],

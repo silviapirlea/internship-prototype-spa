@@ -1,0 +1,17 @@
+<div class="modal-header" style="display: flex; justify-content: space-between; align-items: center;">
+  <h4 class="modal-title">Create Internship</h4>
+  <button type="button" style="border: 0px; background-color: white; font-size: 20px;  outline: none;" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+    <create-internship-form></create-internship-form>
+</div>
+<div class="modal-footer" style="display: flex; gap: 0.5vw">
+   <button type="button" style="border: 0px; background-color: #FF7377; font-size: 20px; padding: 7px;" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">Close</span>
+  </button>
+  <button type="button" style="border: 0px; background-color: #90ee90 ; font-size: 20px; padding: 7px;" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">Create</span>
+  </button>
+</div>

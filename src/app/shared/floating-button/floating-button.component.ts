@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'floating-button',
@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./floating-button.component.scss'],
 })
 export class FloatingButton implements OnInit {
+  @Input() onClick: () => void;
+
   constructor() {}
 
   ngOnInit(): void {}
