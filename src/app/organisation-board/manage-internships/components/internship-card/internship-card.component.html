@@ -1,0 +1,17 @@
+<div class="card" style="width: 50vw;">
+  <div class="card-body" style="display: flex; flex-direction: column; padding: 2vh 2vw 2vh 2vw; gap: 2vh;">
+    <h3>{{internship.title}}</h3>
+   <div style="display: flex; flex-direction: row; gap: 3vw; align-items: baseline;">
+    <text-value [text]="'Position'" [value]="internship.position"></text-value>
+    <text-value [text]="'Work Type'" [value]="internship.workType"></text-value>
+    <text-value [text]="'Location'" [value]="internship.location"></text-value>
+   </div>
+   <div style="display: flex; flex-direction: row; gap: 3vw; align-items: baseline;">
+    <text-value [text]="'End Date'" [value]="internship.endDate"></text-value>
+    <text-value [text]="'Duration'" [value]="internship.duration.toString() + ' months'"></text-value>
+    <text-value [text]="'Salary'" [value]="internship.salaryRange + ' L'" [isGreen]="true"></text-value>
+   </div>
+   <text-value [text]="'Description'" [value]="internship.description" [isFullWidth]="true"></text-value>
+   <text-value [text]="'Technologies'" [value]="formatInternshipTechnologies(internship.technologies)" [isFullWidth]="true"></text-value>
+  </div>
+</div>

@@ -1,5 +1,5 @@
 export enum WorkTypeEnum {
-  ONSITE = 'OnSite',
+  ONSITE = 'On Site',
   REMOTE = 'Remote',
   HYBRID = 'Hybrid',
 }

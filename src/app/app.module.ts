@@ -20,6 +20,8 @@ import { ManageInternshipsComponent } from './organisation-board/manage-internsh
 import { StudentHomeComponent } from './student-board/student-home/student-home.component';
 import { OrganisationHomeComponent } from './organisation-board/organisation-home/organisation-home.component';
 import { InternshipsList } from './organisation-board/manage-internships/components/internships-list/internships-list.component';
+import { InternshipCard } from 'src/app/organisation-board/manage-internships/components/internship-card/internship-card.component';
+import { TextValue } from 'src/app/shared/text-value/text-value.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,8 @@ import { InternshipsList } from './organisation-board/manage-internships/compone
     OrganisationHomeComponent,
     FloatingButton,
     InternshipsList,
+    InternshipCard,
+    TextValue,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],
