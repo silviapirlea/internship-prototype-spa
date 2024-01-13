@@ -2,41 +2,110 @@
   <div class="row">
     <div class="col-md-12">
       <div class="d-flex justify-content-center align-items-center vh-100">
-        <form class="p-4 border rounded" [formGroup]="formGroup">
+        <form
+          class="p-4 border rounded"
+          style="width: 30vw"
+          [formGroup]="formGroup"
+        >
           <h2 class="mb-4">Register</h2>
           <div class="mb-3">
-            <label for="email" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="email" placeholder="Enter your email" required
-                   [formControlName]="EMAIL">
-            <div *ngIf="formGroup.get('email')?.hasError('email') && formGroup.get('email')?.touched"
-                 class="text-danger">
+            <label for="email" class="form-label">Email Address</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              required
+              [formControlName]="EMAIL"
+            />
+            <div
+              *ngIf="
+                formGroup.get('email')?.hasError('email') &&
+                formGroup.get('email')?.touched
+              "
+              class="text-danger"
+            >
               Please enter a valid email address.
             </div>
           </div>
           <div class="mb-3">
             <label for="password" class="form-label">Password</label>
-            <input type="password" class="form-control" id="password" placeholder="Enter your password" required
-                   [formControlName]="PASSWORD">
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              required
+              [formControlName]="PASSWORD"
+            />
           </div>
           <div class="mb-3">
-            <label for="firstName" class="form-label">First name</label>
-            <input type="text" class="form-control" id="firstName" placeholder="Enter your first name" required
-                   [formControlName]="FIRST_NAME">
+            <label for="firstName" class="form-label">First Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="firstName"
+              required
+              [formControlName]="FIRST_NAME"
+            />
           </div>
           <div class="mb-3">
-            <label for="lastName" class="form-label">Last name</label>
-            <input type="text" class="form-control" id="lastName" placeholder="Enter your last name" required
-                   [formControlName]="LAST_NAME">
+            <label for="lastName" class="form-label">Last Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="lastName"
+              required
+              [formControlName]="LAST_NAME"
+            />
           </div>
           <div class="mb-3">
             <label for="phone" class="form-label">Phone</label>
-            <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number" required
-                   [formControlName]="PHONE">
+            <input
+              type="tel"
+              class="form-control"
+              id="phone"
+              required
+              [formControlName]="PHONE"
+            />
           </div>
-          <button type="submit" class="btn btn-primary" [disabled]="this.formGroup.invalid" (click)="onRegister()">
+          <div class="mb-3">
+            <label for="role" class="form-label">Role</label>
+            <select
+              id="role"
+              class="form-select"
+              aria-label="Select..."
+              aria-placeholder="Select..."
+              [formControlName]="ROLE"
+              (change)="onRoleChange($event)"
+              required
+            >
+              <option value="STUDENT">Student</option>
+              <option value="ORGANISATION">HR Recruiter</option>
+            </select>
+          </div>
+          <div class="mb-3" class="mb-3" *ngIf="this.role === 'ORGANISATION'">
+            <label for="organisation" class="form-label">Organisation</label>
+            <select
+              id="organisation"
+              class="form-select"
+              aria-label="Select..."
+              aria-placeholder="Select..."
+              [formControlName]="ORGANISATION"
+              [required]="this.role === 'ORGANISATION'"
+            >
+              <option *ngFor="let org of organisations" [value]="org">
+                {{ org }}
+              </option>
+            </select>
+          </div>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            [disabled]="this.formGroup.invalid"
+            (click)="onRegister()"
+          >
             Register
           </button>
-          <div *ngIf="errorMessage" class="text-danger">{{errorMessage}}</div>
+          <div *ngIf="errorMessage" class="text-danger">{{ errorMessage }}</div>
         </form>
       </div>
     </div>

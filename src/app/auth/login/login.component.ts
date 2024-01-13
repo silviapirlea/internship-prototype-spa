@@ -55,10 +55,13 @@ export class LoginComponent implements OnInit {
   private redirectToUserBoard(user: UserModel): void {
     switch (user.role) {
       case UserRoleEnum.ORGANISATION:
-        this.router.navigate([RoutesConstants.ORGANISATION_BOARD]);
+        this.router.navigate([
+          RoutesConstants.ORGANISATION_BOARD,
+          'manage-internships',
+        ]);
         break;
       case UserRoleEnum.STUDENT:
-        this.router.navigate([RoutesConstants.STUDENT_BOARD]);
+        this.router.navigate([RoutesConstants.STUDENT_BOARD, 'profile']);
         break;
       default: this.router.navigate([RoutesConstants.LANDING]);
     }

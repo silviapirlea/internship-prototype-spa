@@ -1,4 +1,4 @@
 export enum OrganisationMenuSectionEnum {
-  HOME = 'home',
-  MANAGE_INTERNSHIPS = 'manage-internships'
+  MANAGE_INTERNSHIPS = 'manage-internships',
+  PROFILE = 'profile',
 }

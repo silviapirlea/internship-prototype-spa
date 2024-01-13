@@ -1,0 +1,54 @@
+<div class="card rounded-5" style="width: 50vw">
+  <div
+    class="card-body"
+    style="
+      display: flex;
+      flex-direction: column;
+      padding: 2vh 2vw 2vh 2vw;
+      gap: 2vh;
+    "
+  >
+    <div
+      style="
+        display: flex;
+        flex-direction: row;
+        gap: 3vw;
+        align-items: baseline;
+      "
+    >
+      <text-value
+        [text]="'First Name'"
+        [value]="user.firstName"
+      ></text-value>
+      <text-value
+        [text]="'Last Name'"
+        [value]="user.lastName"
+      ></text-value>
+      <text-value
+        [text]="'Role'"
+        [value]="user.role"
+      ></text-value>
+    </div>
+    <div
+      style="
+        display: flex;
+        flex-direction: row;
+        gap: 3vw;
+        align-items: baseline;
+      "
+    >
+      <text-value
+        [text]="'Email'"
+        [value]="user.email"
+      ></text-value>
+      <text-value
+        [text]="'Phone Number'"
+        [value]="user.phone"
+      ></text-value>
+      <text-value
+        [text]="'Organisation'"
+        [value]="user.organisation?.name ?? '-'"
+      ></text-value>
+    </div>
+  </div>
+</div>

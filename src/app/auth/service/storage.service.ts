@@ -61,16 +61,16 @@ export class StorageService {
   constructor(private readonly internshipService: InternshipService) {}
 
   clean(): void {
-    window.sessionStorage.clear();
+    window.localStorage.clear();
   }
 
   public saveUser(user: UserModel): void {
-    window.sessionStorage.removeItem(this.USER_KEY);
-    window.sessionStorage.setItem(this.USER_KEY, JSON.stringify(user));
+    window.localStorage.removeItem(this.USER_KEY);
+    window.localStorage.setItem(this.USER_KEY, JSON.stringify(user));
   }
 
   public getUser(): any {
-    const user = window.sessionStorage.getItem(this.USER_KEY);
+    const user = window.localStorage.getItem(this.USER_KEY);
     if (user) {
       return JSON.parse(user);
     }
@@ -78,7 +78,7 @@ export class StorageService {
   }
 
   public getInternships(): InternshipModel[] {
-    const storedInternships = window.sessionStorage.getItem(
+    const storedInternships = window.localStorage.getItem(
       this.ORGANIZATION_INTERNSHIPS_KEY
     );
     let generatedInternships: InternshipModel[] = [];
@@ -95,7 +95,7 @@ export class StorageService {
   }
 
   public createInternship(internship: InternshipModel): void {
-    const storedInternships = window.sessionStorage.getItem(
+    const storedInternships = window.localStorage.getItem(
       this.ORGANIZATION_INTERNSHIPS_KEY
     );
     let newStoredInternships: InternshipModel[] = [];
@@ -105,7 +105,7 @@ export class StorageService {
       newStoredInternships.push(...JSON.parse(storedInternships));
     }
     newStoredInternships.push(internship);
-    window.sessionStorage.setItem(
+    window.localStorage.setItem(
       this.ORGANIZATION_INTERNSHIPS_KEY,
       JSON.stringify(newStoredInternships)
     );
@@ -113,7 +113,7 @@ export class StorageService {
   }
 
   public deleteInternship(internshipId: string): void {
-    const storedInternships = window.sessionStorage.getItem(
+    const storedInternships = window.localStorage.getItem(
       this.ORGANIZATION_INTERNSHIPS_KEY
     );
     if (storedInternships) {
@@ -123,7 +123,7 @@ export class StorageService {
       const newInternships = parsedInternships.filter(
         (internship) => internship.id !== internshipId
       );
-      window.sessionStorage.setItem(
+      window.localStorage.setItem(
         this.ORGANIZATION_INTERNSHIPS_KEY,
         JSON.stringify(newInternships)
       );
@@ -132,7 +132,7 @@ export class StorageService {
   }
 
   public isLoggedIn(): boolean {
-    const user = window.sessionStorage.getItem(this.USER_KEY);
+    const user = window.localStorage.getItem(this.USER_KEY);
     return !!user;
   }
 

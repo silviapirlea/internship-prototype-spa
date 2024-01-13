@@ -2,16 +2,16 @@
   <div class="row">
     <div class="col-md-12">
       <div class="d-flex justify-content-center align-items-center vh-100">
-        <form class="p-4 border rounded" [formGroup]="formGroup">
+        <form class="p-4 border rounded" style="width: 30vw;" [formGroup]="formGroup">
           <h2 class="mb-4">Login</h2>
           <div class="mb-3">
-            <label for="email" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="email" placeholder="Enter your email" required
+            <label for="email" class="form-label">Email Address</label>
+            <input type="email" class="form-control" id="email" required
                    [formControlName]="EMAIL">
           </div>
           <div class="mb-3">
             <label for="password" class="form-label">Password</label>
-            <input type="password" class="form-control" id="password" placeholder="Enter your password" required
+            <input type="password" class="form-control" id="password" required
                    [formControlName]="PASSWORD">
           </div>
           <button type="submit" class="btn btn-primary" (click)="onLogin()">Login</button>

@@ -1,9 +1,10 @@
 import {Injectable} from '@angular/core';
 import {UserModel} from "../model/user.model";
 import {UserRoleEnum} from "../model/user-role.enum";
+import { ORGANISATIONS } from 'src/app/auth/model/contants';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserService {
   users: UserModel[] = [
@@ -14,7 +15,8 @@ export class UserService {
       firstName: 'Silvia',
       lastName: 'Pirlea',
       phone: '0788654234',
-      role: UserRoleEnum.STUDENT
+      role: UserRoleEnum.STUDENT,
+      organisation: ORGANISATIONS[1],
     },
     {
       id: 'id2',
@@ -23,18 +25,21 @@ export class UserService {
       firstName: 'Ana',
       lastName: 'Nica',
       phone: '0788654234',
-      role: UserRoleEnum.ORGANISATION
-    }
+      role: UserRoleEnum.ORGANISATION,
+      organisation: ORGANISATIONS[1],
+    },
   ];
 
-  constructor() { }
+  constructor() {}
 
   addUser(user: UserModel): void {
     this.users.push(user);
   }
 
   findUser(email: string, password: string): UserModel | undefined {
-    return this.users.find((user) => user.email === email && user.password === password);
+    return this.users.find(
+      (user) => user.email === email && user.password === password
+    );
   }
 
   existsByEmail(email: string): boolean {

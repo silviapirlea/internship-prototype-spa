@@ -13,18 +13,16 @@ import { MenuHeaderComponent } from './shared/menu-header/menu-header.component'
 import { MenuHeaderItemComponent } from './shared/menu-header/menu-header-item/menu-header-item.component';
 import { FloatingButton } from './shared/floating-button/floating-button.component';
 import { ProfileComponent } from './student-board/profile/profile.component';
-import { SearchInternshipsComponent } from './student-board/search-internships/search-internships.component';
 import { MyApplicationsComponent } from './student-board/my-applications/my-applications.component';
 import { ManageInternshipsComponent } from './organisation-board/manage-internships/manage-internships.component';
-import { StudentHomeComponent } from './student-board/student-home/student-home.component';
-import { OrganisationHomeComponent } from './organisation-board/organisation-home/organisation-home.component';
 import { InternshipsList } from './organisation-board/manage-internships/components/internships-list/internships-list.component';
 import { InternshipCard } from 'src/app/organisation-board/manage-internships/components/internship-card/internship-card.component';
 import { TextValue } from 'src/app/shared/text-value/text-value.component';
 import { CreateInternshipModal } from 'src/app/organisation-board/manage-internships/components/create-internship-modal/create-internship-modal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { InternshipService } from 'src/app/auth/service/internship.service';
-
+import { ProfileComponent as OrganisationProfileComponent } from 'src/app/organisation-board/profile/profile.component';
+import { ProfileCardComponent } from 'src/app/organisation-board/profile/components/profile-card/profile-card.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,16 +35,15 @@ import { InternshipService } from 'src/app/auth/service/internship.service';
     MenuHeaderComponent,
     MenuHeaderItemComponent,
     ProfileComponent,
-    SearchInternshipsComponent,
     MyApplicationsComponent,
     ManageInternshipsComponent,
-    StudentHomeComponent,
-    OrganisationHomeComponent,
     FloatingButton,
     InternshipsList,
     InternshipCard,
     TextValue,
     CreateInternshipModal,
+    OrganisationProfileComponent,
+    ProfileCardComponent,
   ],
   imports: [
     BrowserModule,
