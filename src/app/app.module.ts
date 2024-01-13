@@ -23,6 +23,7 @@ import { InternshipCard } from 'src/app/organisation-board/manage-internships/co
 import { TextValue } from 'src/app/shared/text-value/text-value.component';
 import { CreateInternshipModal } from 'src/app/organisation-board/manage-internships/components/create-internship-modal/create-internship-modal.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { InternshipService } from 'src/app/auth/service/internship.service';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ReactiveFormsModule,
     NgbModule,
   ],
-  providers: [],
+  providers: [InternshipService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

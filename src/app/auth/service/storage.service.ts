@@ -88,6 +88,7 @@ export class StorageService {
         storedInternships
       ) as InternshipModel[];
       generatedInternships.push(...parsedInternships);
+      return generatedInternships;
     }
     generatedInternships.push(...INTERNSHIPS);
     return generatedInternships;

@@ -30,7 +30,7 @@ export class ManageInternshipsComponent implements OnInit {
     // Subscribe to the modal's result to get notified when it is closed
     modalRef.result.then(
       (result) => {
-        // Update the internships array with the newly created internship
+        // Handle the emitted event to update the internships array
         this.internships.push(result);
       },
       (reason) => {
