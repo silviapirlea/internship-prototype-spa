@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { LoginComponent } from './auth/login/login.component';
 import { StudentBoardComponent } from './student-board/student-board.component';
 import { OrganisationBoardComponent } from './organisation-board/organisation-board.component';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LogoutComponent } from './auth/logout/logout.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { MenuHeaderComponent } from './shared/menu-header/menu-header.component';
@@ -23,7 +22,7 @@ import { InternshipsList } from './organisation-board/manage-internships/compone
 import { InternshipCard } from 'src/app/organisation-board/manage-internships/components/internship-card/internship-card.component';
 import { TextValue } from 'src/app/shared/text-value/text-value.component';
 import { CreateInternshipModal } from 'src/app/organisation-board/manage-internships/components/create-internship-modal/create-internship-modal.component';
-import { CreateInternshipForm } from 'src/app/organisation-board/manage-internships/components/create-internship-form/create-internship-form.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -47,9 +46,14 @@ import { CreateInternshipForm } from 'src/app/organisation-board/manage-internsh
     InternshipCard,
     TextValue,
     CreateInternshipModal,
-    CreateInternshipForm,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgbModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -1,8 +1,9 @@
-import {Injectable} from '@angular/core';
-import {UserModel} from "../model/user.model";
-import {UserRoleEnum} from "../model/user-role.enum";
+import { Injectable } from '@angular/core';
+import { UserModel } from '../model/user.model';
+import { UserRoleEnum } from '../model/user-role.enum';
 import { InternshipModel } from 'src/app/auth/model/internship.model';
 import { WorkTypeEnum } from 'src/app/auth/model/work-type.enum';
+import { InternshipService } from 'src/app/auth/service/internship.service';
 
 const INTERNSHIPS: InternshipModel[] = [
   {
@@ -57,7 +58,7 @@ export class StorageService {
   readonly USER_KEY = 'auth-user';
   readonly ORGANIZATION_INTERNSHIPS_KEY = 'organization-internships';
 
-  constructor() {}
+  constructor(private readonly internshipService: InternshipService) {}
 
   clean(): void {
     window.sessionStorage.clear();
@@ -88,9 +89,26 @@ export class StorageService {
       ) as InternshipModel[];
       generatedInternships.push(...parsedInternships);
     }
-    // get the hardcoded ones if we do not have any, for testing purpose until add feature
     generatedInternships.push(...INTERNSHIPS);
     return generatedInternships;
+  }
+
+  public createInternship(internship: InternshipModel): void {
+    const storedInternships = window.sessionStorage.getItem(
+      this.ORGANIZATION_INTERNSHIPS_KEY
+    );
+    let newStoredInternships: InternshipModel[] = [];
+    if (!storedInternships) {
+      newStoredInternships.push(...INTERNSHIPS);
+    } else {
+      newStoredInternships.push(...JSON.parse(storedInternships));
+    }
+    newStoredInternships.push(internship);
+    window.sessionStorage.setItem(
+      this.ORGANIZATION_INTERNSHIPS_KEY,
+      JSON.stringify(newStoredInternships)
+    );
+    this.internshipService.updateInternships(newStoredInternships);
   }
 
   public isLoggedIn(): boolean {

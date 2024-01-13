@@ -1,17 +1,185 @@
-<div class="modal-header" style="display: flex; justify-content: space-between; align-items: center;">
+<div
+  class="modal-header"
+  style="display: flex; justify-content: space-between; align-items: center"
+>
   <h4 class="modal-title">Create Internship</h4>
-  <button type="button" style="border: 0px; background-color: white; font-size: 20px;  outline: none;" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+  <button
+    type="button"
+    style="border: 0px; background-color: white; font-size: 20px; outline: none"
+    class="close"
+    aria-label="Close"
+    (click)="activeModal.dismiss('Cross click')"
+  >
     <span aria-hidden="true">&times;</span>
   </button>
 </div>
 <div class="modal-body">
-    <create-internship-form></create-internship-form>
+  <form [formGroup]="formGroup">
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input
+        type="text"
+        class="form-control"
+        id="title"
+        placeholder="Title"
+        required
+        [formControlName]="TITLE"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="position" class="form-label">Position</label>
+      <input
+        type="text"
+        class="form-control"
+        id="position"
+        placeholder="Position"
+        required
+        [formControlName]="POSITION"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="typeOfWork" class="form-label">Type Of Work</label>
+      <select
+        class="form-select"
+        aria-label="Select..."
+        aria-placeholder="Select..."
+        [formControlName]="TYPE_OF_WORK"
+        required
+      >
+        <option value="ONSITE">On Site</option>
+        <option value="REMOTE">Remote</option>
+        <option value="HYBRID">Hybrid</option>
+      </select>
+    </div>
+    <div class="mb-3" style="display: flex; justify-content: space-between">
+      <div>
+        <label for="location" class="form-label">Location</label>
+        <input
+          type="text"
+          class="form-control"
+          id="location"
+          placeholder="Location"
+          style="width: 11.5vw"
+          required
+          [formControlName]="LOCATION"
+        />
+      </div>
+      <div>
+        <label for="endDate" class="form-label">End Date</label>
+        <input
+          id="endDate"
+          style="width: 11.5vw"
+          class="form-control"
+          placeholder="dd-mm-yyyy"
+          name="endDate"
+          type="date"
+          #d="ngbDatepicker"
+          ngbDatepicker
+          required
+          [formControlName]="END_DATE"
+        />
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="lowRange" class="form-label">Salary Range (L)</label>
+      <div class="mb-3" style="display: flex; justify-content: space-between">
+        <input
+          type="number"
+          class="form-control"
+          id="lowRange"
+          required
+          [formControlName]="RANGE_LOW"
+          style="width: 11.5vw"
+        />
+        <h3>-</h3>
+        <input
+          type="number"
+          class="form-control"
+          id="highRange"
+          style="width: 11.5vw"
+          required
+          [formControlName]="RANGE_HIGH"
+        />
+      </div>
+      <div
+        *ngIf="
+          formGroup.get('lowRange')?.value &&
+          formGroup.get('highRange')?.value &&
+          formGroup.get('lowRange')?.value >= formGroup.get('highRange')?.value
+        "
+        class="text-danger"
+      >
+        Lower value should be less than the upper value!
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <textarea
+        type="text"
+        class="form-control"
+        id="description"
+        required
+        [formControlName]="DESCRIPTION"
+        style="width: 100%"
+        aria-multiline="true"
+        cols="40"
+        rows="3"
+      ></textarea>
+    </div>
+    <div class="mb-3">
+      <label for="skills" class="form-label">Technologies</label>
+      <select
+        class="form-select"
+        aria-label="Select..."
+        aria-placeholder="Select..."
+        [formControlName]="TECHNOLOGIES"
+        multiple
+        required
+      >
+        <option value="React">React</option>
+        <option value="NodeJS">NodeJs</option>
+        <option value="Angular">Angular</option>
+        <option value="Javascript">Javascript</option>
+        <option value="Typescript">Typescript</option>
+        <option value="C++">C++</option>
+        <option value="C#">C#</option>
+        <option value="JAVA">Java</option>
+        <option value="Vue">Vue</option>
+        <option value="SpringBoot">SpringBoot</option>
+        <option value="MaterialUI">Material UI</option>
+      </select>
+    </div>
+    <div *ngIf="errorMessage" class="text-danger">{{ errorMessage }}</div>
+  </form>
 </div>
 <div class="modal-footer" style="display: flex; gap: 0.5vw">
-   <button type="button" style="border: 0px; background-color: #FF7377; font-size: 20px; padding: 7px;" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+  <button
+    type="button"
+    style="
+      border: 0px;
+      background-color: #ff7377;
+      font-size: 20px;
+      padding: 7px;
+    "
+    class="close"
+    aria-label="Close"
+    (click)="activeModal.dismiss('Cross click')"
+  >
     <span aria-hidden="true">Close</span>
   </button>
-  <button type="button" style="border: 0px; background-color: #90ee90 ; font-size: 20px; padding: 7px;" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+  <button
+    type="button"
+    style="
+      border: 0px;
+      background-color: #90ee90;
+      font-size: 20px;
+      padding: 7px;
+    "
+    class="close"
+    aria-label="Close"
+    [disabled]="this.formGroup.invalid"
+    (click)="onRegister()"
+  >
     <span aria-hidden="true">Create</span>
   </button>
 </div>
