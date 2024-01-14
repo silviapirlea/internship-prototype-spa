@@ -272,9 +272,27 @@ export class StorageService {
     return filteredInternships;
   };
 
-  public getInternships(organisation: Entity): InternshipModel[] {
+  public getAllInternships(): InternshipModel[] {
     const storedInternships = window.localStorage.getItem(
       this.ORGANIZATION_INTERNSHIPS_KEY
+    );
+    let generatedInternships: InternshipModel[] = [];
+    // get the internships if we have them stored
+    if (storedInternships) {
+      const parsedInternships = JSON.parse(
+        storedInternships
+      ) as InternshipModel[];
+      generatedInternships.push(...parsedInternships);
+      console.log(generatedInternships);
+      return generatedInternships;
+    }
+    generatedInternships.push(...INTERNSHIPS);
+    return generatedInternships;
+  }
+
+  public getFilteredInternships(organisation: Entity): InternshipModel[] {
+    const storedInternships = window.localStorage.getItem(
+      `${this.ORGANIZATION_INTERNSHIPS_KEY}-${organisation.id}`
     );
     let generatedInternships: InternshipModel[] = [];
     // get the internships if we have them stored
@@ -291,7 +309,7 @@ export class StorageService {
       ...this.filterInternships(INTERNSHIPS, organisation)
     );
     window.localStorage.setItem(
-      this.ORGANIZATION_INTERNSHIPS_KEY,
+      `${this.ORGANIZATION_INTERNSHIPS_KEY}-${organisation.id}`,
       JSON.stringify(generatedInternships)
     );
     return generatedInternships;
@@ -309,7 +327,7 @@ export class StorageService {
     }
     newStoredInternships.push(internship);
     window.localStorage.setItem(
-      this.ORGANIZATION_INTERNSHIPS_KEY,
+      `${this.ORGANIZATION_INTERNSHIPS_KEY}-${internship.organisation.id}`,
       JSON.stringify(newStoredInternships)
     );
     this.internshipService.updateInternships(newStoredInternships);
@@ -327,7 +345,7 @@ export class StorageService {
         (internship) => String(internship.id) !== String(internshipId)
       );
       window.localStorage.setItem(
-        this.ORGANIZATION_INTERNSHIPS_KEY,
+        `${this.ORGANIZATION_INTERNSHIPS_KEY}-${internshipId}`,
         JSON.stringify(newInternships)
       );
       this.internshipService.updateInternships(newInternships);

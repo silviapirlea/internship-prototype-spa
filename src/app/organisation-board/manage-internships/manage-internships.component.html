@@ -1,4 +1,18 @@
-<section>
-  <internships-list></internships-list>
+<div
+  style="
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+    align-items: center;
+    justify-content: center;
+  "
+>
+  <div *ngFor="let internship of internships">
+    <internship-card
+      [internship]="internship"
+      [onInternshipDelete]="deleteInternship.bind(this)"
+    ></internship-card>
+  </div>
   <floating-button [onClick]="openDialog.bind(this)"></floating-button>
-</section>
+</div>

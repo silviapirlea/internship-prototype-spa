@@ -8,12 +8,29 @@
       gap: 2vh;
     "
   >
-  <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between;">
-    <h3>{{ internship.title }}</h3>
-    <button type="button" class="btn btn-floating" style="background-color: red; color: white" (click)="deleteInternship()">
-      <i class="fas fa-trash"></i>
-    </button>
-  </div>
+    <div
+      style="
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      "
+    >
+      <h3>{{ internship.title }}</h3>
+      <ng-container *ngIf="isCurrentUserStudent()">
+        <button (click)="applyAlert()" style="font-size: 18px; background-color: #90ee90; border: 1px 1px white; border-radius: 20px; padding-left: 10px; padding-right: 10px; padding-top: 5px; padding-bottom: 5px;">Apply</button>
+      </ng-container>
+      <ng-container *ngIf="!isCurrentUserStudent()">
+        <button
+          type="button"
+          class="btn btn-floating"
+          style="background-color: red; color: white"
+          (click)="deleteInternship()"
+        >
+          <i class="fas fa-trash"></i>
+        </button>
+      </ng-container>
+    </div>
 
     <div
       style="
