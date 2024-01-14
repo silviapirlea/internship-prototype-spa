@@ -26,15 +26,11 @@ export class ManageInternshipsComponent implements OnInit {
 
   openDialog() {
     const modalRef = this.modalService.open(CreateInternshipModal);
-
-    // Subscribe to the modal's result to get notified when it is closed
     modalRef.result.then(
       (result) => {
-        // Handle the emitted event to update the internships array
         this.internships.push(result);
       },
       (reason) => {
-        // Handle dismissal or any other case
         console.log(`Dismissed: ${reason}`);
       }
     );

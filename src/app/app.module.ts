@@ -23,6 +23,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { InternshipService } from 'src/app/auth/service/internship.service';
 import { ProfileComponent as OrganisationProfileComponent } from 'src/app/organisation-board/profile/profile.component';
 import { ProfileCardComponent } from 'src/app/organisation-board/profile/components/profile-card/profile-card.component';
+import { NoInternshipsComponent } from 'src/app/shared/no-internships/no-internships.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,6 +45,7 @@ import { ProfileCardComponent } from 'src/app/organisation-board/profile/compone
     CreateInternshipModal,
     OrganisationProfileComponent,
     ProfileCardComponent,
+    NoInternshipsComponent,
   ],
   imports: [
     BrowserModule,

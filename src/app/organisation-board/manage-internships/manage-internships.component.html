@@ -1,4 +1,7 @@
 <section>
+  <no-internships *ngIf="
+                !internships
+              "></no-internships>
   <internships-list></internships-list>
   <floating-button [onClick]="openDialog.bind(this)"></floating-button>
 </section>
