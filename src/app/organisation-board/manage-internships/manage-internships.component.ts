@@ -21,29 +21,23 @@ export class ManageInternshipsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const user = this.storageService.getUser() as UserModel;
-    this.internships = this.storageService.getFilteredInternships(
-      user.organisation!
-    );
+    this.getInternships();
   }
 
   deleteInternship(internshipId: string): void {
-    console.log(this.internships);
-    const currentInternships = this.internships;
-    this.internships = currentInternships.filter(
-      (internship) => internship.id !== internshipId
-    );
+    this.storageService.deleteInternship(internshipId);
+    this.getInternships();
   }
 
   openDialog() {
     const modalRef = this.modalService.open(CreateInternshipModal);
-    modalRef.result.then(
-      (result) => {
-        this.internships.push(result);
-      },
-      (reason) => {
-        console.log(`Dismissed: ${reason}`);
-      }
+    modalRef.componentInstance.internshipCreated.subscribe(() => this.getInternships())
+  }
+
+  private getInternships() {
+    const user = this.storageService.getUser() as UserModel;
+    this.internships = this.storageService.getFilteredInternships(
+      user.organisation!
     );
   }
 }

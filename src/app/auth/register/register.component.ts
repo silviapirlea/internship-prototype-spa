@@ -11,6 +11,7 @@ import { UserModel } from '../model/user.model';
 import { AuthService } from '../service/auth.service';
 import { RoutesConstants } from '../../shared/RoutesConstants';
 import { ORGANISATIONS } from 'src/app/auth/model/contants';
+import {v4 as uuidv4} from 'uuid';
 
 @Component({
   selector: 'app-register',
@@ -57,8 +58,10 @@ export class RegisterComponent implements OnInit {
       this.formGroup.markAllAsTouched();
       return;
     }
+    const id = uuidv4().toString();
     const user: UserModel = {
       ...this.formGroup.value,
+      id,
       role: this.role,
       organisation: {
         id: ORGANISATIONS.find(

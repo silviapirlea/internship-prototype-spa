@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import { Entity } from 'src/app/auth/model/entity';
 import { InternshipModel } from 'src/app/auth/model/internship.model';
 import { UserRoleEnum } from 'src/app/auth/model/user-role.enum';
@@ -13,13 +13,15 @@ import { formatStringList } from 'src/app/helpers/formatStringList';
 export class InternshipCard implements OnInit {
   @Input() internship: InternshipModel;
   @Input() onInternshipDelete: (internshipId: string) => void;
+  @Input() viewOnly = false;
+  @Output() applyEvent: EventEmitter<string> = new EventEmitter<string>();
 
   constructor(private readonly storageService: StorageService) {}
 
   ngOnInit(): void {}
 
   applyAlert(): void {
-    alert('Apply now!');
+    this.applyEvent.emit(this.internship.id);
   }
 
   isCurrentUserStudent(): boolean {
