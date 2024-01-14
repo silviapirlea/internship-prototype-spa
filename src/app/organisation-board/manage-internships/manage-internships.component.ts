@@ -4,7 +4,6 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { CreateInternshipModal } from 'src/app/organisation-board/manage-internships/components/create-internship-modal/create-internship-modal.component';
 import { InternshipModel } from 'src/app/auth/model/internship.model';
 import { InternshipService } from 'src/app/auth/service/internship.service';
-
 @Component({
   selector: 'app-manage-internships',
   templateUrl: './manage-internships.component.html',
