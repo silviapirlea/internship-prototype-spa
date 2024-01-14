@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Entity } from 'src/app/auth/model/entity';
 import { InternshipModel } from 'src/app/auth/model/internship.model';
+import { UserRoleEnum } from 'src/app/auth/model/user-role.enum';
 import { StorageService } from 'src/app/auth/service/storage.service';
 import { formatStringList } from 'src/app/helpers/formatStringList';
 
@@ -11,16 +12,27 @@ import { formatStringList } from 'src/app/helpers/formatStringList';
 })
 export class InternshipCard implements OnInit {
   @Input() internship: InternshipModel;
+  @Input() onInternshipDelete: (internshipId: string) => void;
 
   constructor(private readonly storageService: StorageService) {}
 
   ngOnInit(): void {}
+
+  applyAlert(): void {
+    alert('Apply now!');
+  }
+
+  isCurrentUserStudent(): boolean {
+    const role = this.storageService.getUser()['role'] as UserRoleEnum;
+    return role === UserRoleEnum.STUDENT;
+  }
 
   formatInternshipTechnologies(technologies: Entity[]): string {
     return formatStringList(technologies.map((technology) => technology.name));
   }
 
   deleteInternship(): void {
-    this.storageService.deleteInternship(this.internship.id);
+    this.onInternshipDelete(this.internship.id)
+    this.storageService.deleteInternship(this.internship.id)
   }
 }

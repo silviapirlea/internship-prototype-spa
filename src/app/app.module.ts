@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -15,7 +15,6 @@ import { FloatingButton } from './shared/floating-button/floating-button.compone
 import { ProfileComponent } from './student-board/profile/profile.component';
 import { MyApplicationsComponent } from './student-board/my-applications/my-applications.component';
 import { ManageInternshipsComponent } from './organisation-board/manage-internships/manage-internships.component';
-import { InternshipsList } from './organisation-board/manage-internships/components/internships-list/internships-list.component';
 import { InternshipCard } from 'src/app/organisation-board/manage-internships/components/internship-card/internship-card.component';
 import { TextValue } from 'src/app/shared/text-value/text-value.component';
 import { CreateInternshipModal } from 'src/app/organisation-board/manage-internships/components/create-internship-modal/create-internship-modal.component';
@@ -23,6 +22,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { InternshipService } from 'src/app/auth/service/internship.service';
 import { ProfileComponent as OrganisationProfileComponent } from 'src/app/organisation-board/profile/profile.component';
 import { ProfileCardComponent } from 'src/app/organisation-board/profile/components/profile-card/profile-card.component';
+import { SearchComponent } from 'src/app/student-board/search/search.component';
 import { CreateProfileModalComponent } from './student-board/profile/create-profile-modal/create-profile-modal.component';
 import { FileUploadComponent } from './shared/file-upload/file-upload.component';
 
@@ -41,12 +41,12 @@ import { FileUploadComponent } from './shared/file-upload/file-upload.component'
     MyApplicationsComponent,
     ManageInternshipsComponent,
     FloatingButton,
-    InternshipsList,
     InternshipCard,
     TextValue,
     CreateInternshipModal,
     OrganisationProfileComponent,
     ProfileCardComponent,
+    SearchComponent,
     CreateProfileModalComponent,
     FileUploadComponent,
   ],
@@ -59,5 +59,6 @@ import { FileUploadComponent } from './shared/file-upload/file-upload.component'
   ],
   providers: [InternshipService],
   bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule {}
