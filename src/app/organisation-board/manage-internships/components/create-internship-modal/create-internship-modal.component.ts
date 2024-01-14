@@ -49,7 +49,11 @@ export class CreateInternshipModal implements OnInit {
       return;
     }
     this.activeModal.dismiss('Submitted');
-    const createdInternship = buildCreateInternshipModel(this.formGroup.value);
+    const loggedUser = this.storageService.getUser();
+    const createdInternship = buildCreateInternshipModel(
+      this.formGroup.value,
+      loggedUser['organisation']
+    );
     this.storageService.createInternship(createdInternship);
 
     // Emit the newly created internship to the parent component

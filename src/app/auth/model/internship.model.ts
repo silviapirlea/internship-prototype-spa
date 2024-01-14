@@ -12,4 +12,5 @@ export interface InternshipModel {
   endDate: string;
   duration: number; // maybe as months, make it easier (internships cant take years)
   salaryRange: string; // 100-200 as string
+  organisation: Entity;
 }

@@ -6,18 +6,17 @@ import {RoutesConstants} from "../../shared/RoutesConstants";
 @Component({
   selector: 'app-logout',
   templateUrl: './logout.component.html',
-  styleUrls: ['./logout.component.scss']
+  styleUrls: ['./logout.component.scss'],
 })
 export class LogoutComponent implements OnInit {
+  constructor(
+    private readonly storageService: StorageService,
+    private readonly router: Router
+  ) {}
 
-  constructor(private readonly storageService: StorageService, private readonly router: Router) { }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onLogout(): void {
-    this.storageService.clean();
     this.router.navigate([RoutesConstants.LANDING]);
   }
-
 }

@@ -60,7 +60,13 @@ export class RegisterComponent implements OnInit {
     const user: UserModel = {
       ...this.formGroup.value,
       role: this.role,
-      organisation: { id: 0, name: this.formGroup.value.organisation },
+      organisation: {
+        id: ORGANISATIONS.find(
+          (organisation) =>
+            organisation.name === this.formGroup.value.organisation
+        )?.id,
+        name: this.formGroup.value.organisation,
+      },
     };
     if (this.role === UserRoleEnum.STUDENT) {
       delete user['organisation'];

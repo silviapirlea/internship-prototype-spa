@@ -13,6 +13,8 @@ export class InternshipsList implements OnInit {
   constructor(private readonly storageService: StorageService) {}
 
   ngOnInit(): void {
-    this.internships = this.storageService.getInternships();
+    this.internships = this.storageService.getInternships(
+      this.storageService.getUser()['organisation']
+    );
   }
 }

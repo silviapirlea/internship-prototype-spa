@@ -1,7 +1,9 @@
+import { Entity } from 'src/app/auth/model/entity';
 import { InternshipModel } from 'src/app/auth/model/internship.model';
 
 export const buildCreateInternshipModel = (
-  formGroupValue: any
+  formGroupValue: any,
+  organisation: Entity
 ): InternshipModel => ({
   id: Math.random().toString(36).substring(2, 10),
   title: formGroupValue['title'],
@@ -20,4 +22,5 @@ export const buildCreateInternshipModel = (
     (formGroupValue['endDate']['year'] - new Date().getFullYear()) * 12 +
     (formGroupValue['endDate']['month'] - (new Date().getMonth() + 1)),
   salaryRange: `${formGroupValue['lowRange']}-${formGroupValue['highRange']}`,
+  organisation,
 });
