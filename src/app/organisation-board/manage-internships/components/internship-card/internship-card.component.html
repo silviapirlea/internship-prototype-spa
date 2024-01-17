@@ -17,7 +17,7 @@
       "
     >
       <h3>{{ internship.title }}</h3>
-      <ng-container *ngIf="isCurrentUserStudent()">
+      <ng-container *ngIf="isCurrentUserStudent() && !viewOnly">
         <button (click)="applyAlert()" style="font-size: 18px; background-color: #90ee90; border: 1px 1px white; border-radius: 20px; padding-left: 10px; padding-right: 10px; padding-top: 5px; padding-bottom: 5px;">Apply</button>
       </ng-container>
       <ng-container *ngIf="!isCurrentUserStudent()">

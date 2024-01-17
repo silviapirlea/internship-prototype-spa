@@ -283,16 +283,16 @@ export class StorageService {
         storedInternships
       ) as InternshipModel[];
       generatedInternships.push(...parsedInternships);
-      console.log(generatedInternships);
       return generatedInternships;
     }
     generatedInternships.push(...INTERNSHIPS);
+    window.localStorage.setItem(this.ORGANIZATION_INTERNSHIPS_KEY, JSON.stringify(generatedInternships));
     return generatedInternships;
   }
 
-  public getFilteredInternships(organisation: Entity): InternshipModel[] {
+  public getInternshipsByIdIn(ids: string[]) {
     const storedInternships = window.localStorage.getItem(
-      `${this.ORGANIZATION_INTERNSHIPS_KEY}-${organisation.id}`
+      this.ORGANIZATION_INTERNSHIPS_KEY
     );
     let generatedInternships: InternshipModel[] = [];
     // get the internships if we have them stored
@@ -300,17 +300,17 @@ export class StorageService {
       const parsedInternships = JSON.parse(
         storedInternships
       ) as InternshipModel[];
-      generatedInternships.push(
-        ...this.filterInternships(parsedInternships, organisation)
-      );
-      return generatedInternships;
+      generatedInternships = parsedInternships.filter((internship) => ids.includes(internship.id));
+    } else {
+      generatedInternships = INTERNSHIPS.filter((internship) => ids.includes(internship.id));
     }
+    return generatedInternships;
+  }
+
+  public getFilteredInternships(organisation: Entity): InternshipModel[] {
+    let generatedInternships: InternshipModel[] = [];
     generatedInternships.push(
-      ...this.filterInternships(INTERNSHIPS, organisation)
-    );
-    window.localStorage.setItem(
-      `${this.ORGANIZATION_INTERNSHIPS_KEY}-${organisation.id}`,
-      JSON.stringify(generatedInternships)
+      ...this.filterInternships(this.getAllInternships(), organisation)
     );
     return generatedInternships;
   }
@@ -326,10 +326,7 @@ export class StorageService {
       newStoredInternships.push(...JSON.parse(storedInternships));
     }
     newStoredInternships.push(internship);
-    window.localStorage.setItem(
-      `${this.ORGANIZATION_INTERNSHIPS_KEY}-${internship.organisation.id}`,
-      JSON.stringify(newStoredInternships)
-    );
+    window.localStorage.setItem(this.ORGANIZATION_INTERNSHIPS_KEY, JSON.stringify(newStoredInternships));
     this.internshipService.updateInternships(newStoredInternships);
   }
 
@@ -344,10 +341,7 @@ export class StorageService {
       const newInternships = parsedInternships.filter(
         (internship) => String(internship.id) !== String(internshipId)
       );
-      window.localStorage.setItem(
-        `${this.ORGANIZATION_INTERNSHIPS_KEY}-${internshipId}`,
-        JSON.stringify(newInternships)
-      );
+      window.localStorage.setItem(this.ORGANIZATION_INTERNSHIPS_KEY, JSON.stringify(newInternships));
       this.internshipService.updateInternships(newInternships);
     }
   }

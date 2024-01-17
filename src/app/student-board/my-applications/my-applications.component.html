@@ -1,1 +1,18 @@
-<p>my-applications works!</p>
+<div
+  style="
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  "
+>
+  <div *ngFor="let internship of internships"
+       style="display: flex; justify-content: center; flex-direction: column; margin-top: 5vh; gap: 2vh">
+    <div class="d-flex">
+      <h4 class="me-1">{{'Status: '}}</h4>
+      <h4 class="fw-bold" [ngClass]="getStatusForInternshipApplication(internship.id)?.toLowerCase()">
+        {{getStatusForInternshipApplication(internship.id)}}</h4>
+    </div>
+    <internship-card [internship]="internship" [viewOnly]="true"></internship-card>
+  </div>
+</div>

@@ -51,7 +51,6 @@ export class CreateProfileModalComponent implements OnInit {
     const user = this.storageService.getUser();
 
     const profile: StudentProfileModel = {id, userId: user?.id ,address, cv, interests};
-    console.log(profile)
     this.studentService.createProfile(profile);
     this.saveEvent.emit(profile);
     this.activeModal.close();
